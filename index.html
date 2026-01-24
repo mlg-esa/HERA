@@ -55,7 +55,7 @@
       }
       .copy-btn:focus { outline: 2px solid #b59f3b; outline-offset: 2px; }
 
-      /* Einfachere Differenzierung + Screenshot-Boxen */
+      /* Einfache Differenzierung + Screenshot-Boxen (keine Klapp-Buttons) */
       .options {
         display: grid;
         grid-template-columns: 1fr;
@@ -87,17 +87,18 @@
         color: #555;
       }
 
-      /* Papagei Doodle */
-      .parrot {
-        font-family: "Courier New", monospace;
-        line-height: 1.1;
-        white-space: pre;
-        background: #f5fbff;
-        border: 1px solid #cfe9ff;
-        border-radius: 10px;
-        padding: 0.6rem;
-        display: inline-block;
-        margin: 0.3rem 0 0.6rem 0;
+      /* Parrot-Doodle-Bild */
+      .parrot-img {
+        max-width: 140px;
+        height: auto;
+        vertical-align: middle;
+        margin-right: 0.6rem;
+        border-radius: 8px;
+      }
+      .parrot-wrap {
+        display: flex;
+        align-items: center;
+        gap: 0.6rem;
       }
 
       /* Abstände */
@@ -114,8 +115,8 @@
       <nav aria-label="Hauptnavigation">
         <ul>
           <li><a href="index.html" aria-current="page">Wiederholung</a></li>
-          <li><a href="kontra-intuitiv.html">KI als Resonanzmaschine</a></li>
-          <li><a href="schieberegler.html">kritsche KI-Nutzung</a></li>
+          <li><a href="kontra-intuitiv.html">Kreativität entwickeln</a></li>
+          <li><a href="schieberegler.html">Kritsche KI-Nutzung</a></li>
         </ul>
       </nav>
     </header>
@@ -190,18 +191,12 @@
 
       <section aria-labelledby="papagei" class="mt-l">
         <h3 id="papagei">3) Was ist ein „stochastischer Papagei“?</h3>
-        <div class="parrot" role="img" aria-label="Doodle eines Papageis">
-(\
- \\_         __
-  ( @>______/  \
-  /     _______/ 
- /_____/   ||
-    ||     ||
-    ^^     ^^
+        <div class="parrot-wrap">
+          <img src="images/parrot-doodle.png" alt="Handgezeichnetes, farbiges Papagei-Doodle" class="parrot-img">
+          <p>
+            Erkläre mit Beispielen aus 1) (Video) und 2) (soekia), warum KI manchmal „stochastischer Papagei“ genannt wird.
+          </p>
         </div>
-        <p>
-          Erkläre mit Beispielen aus 1) (Video) und 2) (soekia), warum KI manchmal „stochastischer Papagei“ genannt wird.
-        </p>
         <ul>
           <li>Warum passt der Begriff? (Muster nachahmen, wahrscheinlich nächstes Wort wählen, Stil der Märchen)</li>
           <li>Wo sind die Grenzen des Begriffs? (z. B. wenn die KI Motive neu kombiniert oder klare Fehler macht)</li>
@@ -214,7 +209,7 @@
       <p>Das ist ein Angebot des Martin-Luther-Gymnasiums Eisenach.</p>
     </footer>
 
-    <!-- Falls du kein JS möchtest, entferne den Button oder den onclick-Handler.
-         Der Button nutzt die Clipboard-API moderner Browser. -->
+    <!-- Hinweis: Der Kopier-Button nutzt die Clipboard-API moderner Browser.
+         Wenn du komplett ohne JS arbeiten willst, entferne den Button oder den onclick-Handler. -->
   </body>
 </html>
