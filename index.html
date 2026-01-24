@@ -5,10 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="simple.css" rel="stylesheet">
     <title>Herausforderung Künstliche Intelligenz</title>
+    <style>
+      /* Optionales Mini-CSS für das Vorschaubild-Link-Layout */
+      .video-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.6rem;
+        margin-top: 0.4rem;
+      }
+      .video-thumb {
+        width: 160px; /* kleines Vorschaubild */
+        height: auto;
+        border-radius: 6px;
+      }
+      .hint {
+        font-size: 0.95rem;
+        color: #444;
+      }
+    </style>
   </head>
   <body>
 
- <header>
+    <header>
       <h1>Wiederholung: Künstliche Intelligenz (Klasse 6)</h1>
       <p>Schau dir das Video an und probiere anschließend ein KI-Tool aus.</p>
 
@@ -30,6 +48,14 @@
         <h3 id="video">1) Video: Wiederholung zum Thema KI</h3>
         <p>
           Schaue dir dieses Video an, um die Inhalte aus Klasse&nbsp;6 zu wiederholen:
+        </p>
+        <p class="video-link">
+          <a href="https://www.youtube.com/watch?v=_80pKGuyKWc" target="_blank" rel="noopener noreferrer">
+            <img
+              src="https://img.youtube.com/vi/_80pKGuyKWc/hqdefault.jpg"
+              alt="Vorschaubild des YouTube-Videos zur Wiederholung KI"
+              class="video-thumb">
+          </a>
           <a href="https://www.youtube.com/watch?v=_80pKGuyKWc" target="_blank" rel="noopener noreferrer">
             https://www.youtube.com/watch?v=_80pKGuyKWc
           </a>
@@ -52,13 +78,25 @@
       <section aria-labelledby="soekia">
         <h3 id="soekia">2) Probiere ein KI-Tool aus</h3>
         <p>
-          Teste anschließend die Seite <a href="https://www.soekia.ch/GPT/" target="_blank" rel="noopener noreferrer">https://www.soekia.ch/GPT/</a>.
-          Überlege dabei:
+          Teste anschließend die Seite
+          <a href="https://www.soekia.ch/GPT/" target="_blank" rel="noopener noreferrer">https://www.soekia.ch/GPT/</a>.
         </p>
+
+        <p class="hint">
+          Warum das spannend ist: soekia GPT ist ein „kleines“ Sprachmodell, das nicht mit dem ganzen Internet,
+          sondern gezielt mit nur 13 Märchen trainiert wurde. Unter „Schau hinein“ kannst du diese Texte sehen.
+          Dadurch „weiß“ das Modell vor allem etwas über Figuren, Handlungen und typische Formulierungen aus diesen
+          Märchen – und weniger über andere Themen. So kannst du gut beobachten, wie Trainingsdaten die Antworten
+          beeinflussen: Je näher deine Frage an den Märchen liegt, desto besser passen die Antworten. Fragst du nach
+          etwas völlig anderem, zeigen sich schneller Grenzen.
+        </p>
+
+        <p>Überlege dabei:</p>
         <ul>
           <li>Was kann das Tool gut? Wo sind Grenzen?</li>
           <li>Welche Eingaben (Prompts) führen zu besseren Ergebnissen?</li>
           <li>Wie kannst du die Antworten überprüfen und verbessern?</li>
+          <li>Erkennst du typische Märchenmuster (z. B. Formulierungen, Figuren, Motive) in den Antworten?</li>
         </ul>
       </section>
     </main>
