@@ -6,7 +6,7 @@
     <link href="simple.css" rel="stylesheet">
     <title>Herausforderung Künstliche Intelligenz</title>
     <style>
-      /* Optionales Mini-CSS für das Vorschaubild-Link-Layout */
+      /* Vorschaubild-Link-Layout */
       .video-link {
         display: inline-flex;
         align-items: center;
@@ -18,36 +18,92 @@
         height: auto;
         border-radius: 6px;
       }
+
+      /* Hinweistext */
       .hint {
         font-size: 0.95rem;
         color: #444;
       }
-      /* Ausklapp-Bereiche und Pseudo-Buttons */
-      details {
-        border: 1px solid #ddd;
-        border-radius: 8px;
-        padding: 0.6rem 0.8rem;
-        margin: 0.6rem 0;
+
+      /* Prompt-Box */
+      .prompt-box {
+        display: flex;
+        align-items: center;
+        gap: 0.6rem;
+        background: #fffef5;
+        border: 1px solid #f1e5b7;
+        border-radius: 10px;
+        padding: 0.75rem 0.9rem;
+        box-shadow: 0 1px 0 rgba(0,0,0,0.02);
+        margin: 0.6rem 0 0.2rem 0;
+      }
+      .prompt-text {
+        font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+        font-size: 0.98rem;
+        color: #5b4a00;
+        flex: 1 1 auto;
+        white-space: pre-wrap;
+      }
+      .copy-btn {
+        font-size: 0.85rem;
+        padding: 0.35rem 0.6rem;
+        border: 1px solid #e2d79c;
+        background: #fff7cd;
+        color: #4d3d00;
+        border-radius: 6px;
+        cursor: pointer;
+      }
+      .copy-btn:focus { outline: 2px solid #b59f3b; outline-offset: 2px; }
+
+      /* Einfachere Differenzierung + Screenshot-Boxen */
+      .options {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 0.75rem;
+        margin-top: 0.5rem;
+      }
+      .card {
+        border: 1px solid #e6e6e6;
+        border-radius: 10px;
+        padding: 0.8rem;
         background: #fafafa;
       }
-      summary {
-        list-style: none;
-        cursor: pointer;
-        font-weight: 600;
-        display: inline-block;
-        padding: 0.4rem 0.7rem;
-        border-radius: 999px;
-        background: #eef3ff;
-        color: #1a3ea0;
-        border: 1px solid #cfdcff;
+      .card h4 {
+        margin: 0 0 0.4rem 0;
+        font-size: 1rem;
       }
-      summary::-webkit-details-marker { display: none; }
-      .pill {
-        display: inline-block;
-        margin-right: 0.4rem;
+      .screenshot {
+        width: 100%;
+        max-width: 520px;
+        height: auto;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        background: #eee;
+        display: block;
+        margin: 0.4rem 0;
       }
+      .small {
+        font-size: 0.9rem;
+        color: #555;
+      }
+
+      /* Papagei Doodle */
+      .parrot {
+        font-family: "Courier New", monospace;
+        line-height: 1.1;
+        white-space: pre;
+        background: #f5fbff;
+        border: 1px solid #cfe9ff;
+        border-radius: 10px;
+        padding: 0.6rem;
+        display: inline-block;
+        margin: 0.3rem 0 0.6rem 0;
+      }
+
+      /* Abstände */
       .mt-s { margin-top: 0.5rem; }
       .mt-m { margin-top: 1rem; }
+      .mt-l { margin-top: 1.5rem; }
     </style>
   </head>
   <body>
@@ -57,11 +113,9 @@
 
       <nav aria-label="Hauptnavigation">
         <ul>
-          <li><a href="index.html" aria-current="page">Start</a></li>
-          <li><a href="kontra-intuitiv.html">KI kontra-intuitiv</a></li>
-          <li><a href="schieberegler.html">Schieberegler-Reflexion</a></li>
-          <li><a href="gruppenpuzzle.html">Gruppenpuzzle</a></li>
-          <li><a href="fachgruppen.html">Austausch in Fachgruppen</a></li>
+          <li><a href="index.html" aria-current="page">Wiederholung</a></li>
+          <li><a href="kontra-intuitiv.html">KI als Resonanzmaschine</a></li>
+          <li><a href="schieberegler.html">kritsche KI-Nutzung</a></li>
         </ul>
       </nav>
     </header>
@@ -93,75 +147,65 @@
         </p>
 
         <p><strong>Starte mit diesem Prompt:</strong></p>
-        <p class="hint">Erzähle mir ein Märchen über eine goldene Gans aus.</p>
+        <div class="prompt-box" role="group" aria-label="Start-Prompt">
+          <span class="prompt-text" id="promptText">Erzähle mir ein Märchen über eine goldene Gans</span>
+          <button class="copy-btn" aria-label="Prompt kopieren" onclick="navigator.clipboard.writeText(document.getElementById('promptText').textContent)">Kopieren</button>
+        </div>
 
         <p class="hint mt-s">
-          Warum das spannend ist: soekia GPT ist ein „kleines“ Sprachmodell, das nicht mit dem ganzen Internet,
-          sondern gezielt mit nur 13 Märchen trainiert wurde. Unter „Schau hinein“ kannst du diese Texte sehen.
-          Dadurch „weiß“ das Modell vor allem etwas über Figuren, Handlungen und typische Formulierungen aus diesen
-          Märchen – und weniger über andere Themen. Je näher deine Frage an den Märchen liegt, desto besser passen die
-          Antworten. Fragst du nach etwas völlig anderem, zeigen sich schneller Grenzen.
+          soekia GPT ist ein „kleines“ Sprachmodell, das mit nur 13 Märchen trainiert wurde. Unter „Schau hinein“
+          kannst du diese Texte sehen. Je näher deine Frage an den Märchen ist, desto besser passen die Antworten.
         </p>
 
-        <p class="mt-m">Wähle je nach Bedarf:</p>
-
-        <details>
-          <summary class="pill">Kein Plan, was man machen kann?</summary>
-          <div class="mt-s">
-            <p>Nutze „Schau hinein“, um das Training zu verstehen, und probiere es direkt aus:</p>
-            <ul>
-              <li>Öffne „Schau hinein“ und lies eines der 13 Märchen kurz an. Notiere 3 typische Merkmale
-                  (z. B. „Es war einmal…“, magische Helfer, Prüfungen).</li>
-              <li>Bitte soekia GPT: „Schreibe eine neue Szene, in der [Merkmal 1], [Merkmal 2] und [Merkmal 3] vorkommen.“</li>
-              <li>Stelle eine Frage zum Hintergrund: „Wer ist die Hauptfigur? Welche Aufgabe hat sie? Welche Hilfe bekommt sie?“</li>
-              <li>Lass den Stil verändern: „Formuliere die Geschichte in moderner Alltagssprache.“</li>
-            </ul>
+        <div class="options mt-m">
+          <div class="card">
+            <h4>Schritt A: Finde „Schau hinein“</h4>
+            <img src="screenshots/soekia-schaut-hinein.png" alt="Screenshot: Position des Knopfs 'Schau hinein' bei soekia" class="screenshot">
+            <p class="small">Klicke auf „Schau hinein“. Sieh dir kurz zwei Märchen an und notiere 3 typische Merkmale (z. B. „Es war einmal…“, magische Hilfe, Prüfungen).</p>
+            <p class="small">Frag danach die KI: „Baue diese 3 Merkmale in eine kurze Szene mit der goldenen Gans ein.“</p>
           </div>
-        </details>
 
-        <details>
-          <summary class="pill">Biete Vorschläge: „Schau hinein“ konkret ausprobieren</summary>
-          <div class="mt-s">
-            <ul>
-              <li>Vergleiche: Wähle 2 Märchen im „Schau hinein“. Bitte das Modell: „Mische die Motive aus Märchen A und B.“</li>
-              <li>Stil-Transfer: „Erzähle ‚Die goldene Gans‘ im Stil von ‚Rotkäppchen‘ (Formulierungen, Figurenrollen).“</li>
-              <li>Fehlerjagd: Frage etwas, das nicht in den Märchen vorkommt (z. B. Fußballregeln). Was passiert?</li>
-              <li>Quelle checken: Bitte um Textstellen-Nachweis: „Zeige Sätze aus den Trainingsmärchen, die du genutzt hast.“</li>
-            </ul>
+          <div class="card">
+            <h4>Schritt B: Vergleiche Antwort und Quelle</h4>
+            <img src="screenshots/soekia-chat.png" alt="Screenshot: Chatbereich von soekia" class="screenshot">
+            <p class="small">Lies die KI-Antwort. Erkennst du die Märchen-Merkmale wieder? Markiere 2 Stellen, die typisch „märchenhaft“ sind.</p>
+            <p class="small">Bitte die KI: „Erkläre, welche Märchenmuster du verwendet hast.“</p>
           </div>
-        </details>
 
-        <details>
-          <summary class="pill">Schon alles ausprobiert? Komplexere Eigenschaften ändern</summary>
-          <div class="mt-s">
-            <ul>
-              <li>Regeln setzen (Systemstil): „Antworte nur in Reimen.“ oder „Antworte in 5 Sätzen, jeder beginnt mit ‚Gold…‘.“</li>
-              <li>Kontrolliere Inhalt: „Vermeide königliche Figuren. Nutze stattdessen Tiere als Hauptfiguren.“</li>
-              <li>Struktur vorgeben: „Erzähle in 3 Akten: Problem – Versuch – Lösung. Markiere die Abschnitte.“</li>
-              <li>Selbstkontrolle: „Prüfe deinen eigenen Text: Welche 3 Märchenmuster hast du verwendet?“</li>
-            </ul>
+          <div class="card">
+            <h4>Schritt C: Grenzen testen</h4>
+            <img src="screenshots/soekia-einstellungen.png" alt="Screenshot: Einstellungs-/Optionen-Bereich bei soekia" class="screenshot">
+            <p class="small">Stell eine Frage außerhalb der Märchen, z. B. zu Fußballregeln. Was passiert? Formuliere: „Hier ist die Grenze, weil …“</p>
+            <p class="small">Variante: Bitte um einen anderen Stil: „Erzähle die goldene Gans in moderner Alltagssprache in 5 Sätzen.“</p>
           </div>
-        </details>
+        </div>
 
         <p class="mt-m">Überlege dabei:</p>
         <ul>
           <li>Was kann das Tool gut? Wo sind Grenzen?</li>
-          <li>Welche Eingaben (Prompts) führen zu besseren Ergebnissen?</li>
-          <li>Wie kannst du die Antworten überprüfen und verbessern?</li>
-          <li>Erkennst du typische Märchenmuster (z. B. Formulierungen, Figuren, Motive) in den Antworten?</li>
+          <li>Welche Eingaben (Prompts) helfen zu besseren Ergebnissen?</li>
+          <li>Wie überprüfst du die Antworten?</li>
         </ul>
       </section>
 
-      <section aria-labelledby="papagei">
+      <section aria-labelledby="papagei" class="mt-l">
         <h3 id="papagei">3) Was ist ein „stochastischer Papagei“?</h3>
+        <div class="parrot" role="img" aria-label="Doodle eines Papageis">
+(\
+ \\_         __
+  ( @>______/  \
+  /     _______/ 
+ /_____/   ||
+    ||     ||
+    ^^     ^^
+        </div>
         <p>
-          Erkläre mithilfe von 1) und 2), warum KI auch als „stochastischer Papagei“ bezeichnet werden kann.
+          Erkläre mit Beispielen aus 1) (Video) und 2) (soekia), warum KI manchmal „stochastischer Papagei“ genannt wird.
         </p>
         <ul>
-          <li>Warum passt der Begriff? Beziehe dich auf das Video und deine Experimente mit soekia (Muster, Stil, Wahrscheinlichkeiten).</li>
-          <li>Wo hat der Begriff Grenzen? Nenne Situationen, in denen das Modell mehr leistet als bloßes Nachplappern
-              (z. B. neues Kombinieren von Motiven) – und wo es klar scheitert (z. B. Fakten außerhalb der Märchen).</li>
-          <li>Formuliere am Ende 2 Sätze: „Passt, weil …“ und „Grenze, weil …“</li>
+          <li>Warum passt der Begriff? (Muster nachahmen, wahrscheinlich nächstes Wort wählen, Stil der Märchen)</li>
+          <li>Wo sind die Grenzen des Begriffs? (z. B. wenn die KI Motive neu kombiniert oder klare Fehler macht)</li>
+          <li>Schreibe zwei Sätze: „Passt, weil …“ und „Grenze, weil …“</li>
         </ul>
       </section>
     </main>
@@ -170,5 +214,7 @@
       <p>Das ist ein Angebot des Martin-Luther-Gymnasiums Eisenach.</p>
     </footer>
 
+    <!-- Falls du kein JS möchtest, entferne den Button oder den onclick-Handler.
+         Der Button nutzt die Clipboard-API moderner Browser. -->
   </body>
 </html>
