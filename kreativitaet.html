@@ -151,7 +151,7 @@
     document.getElementById('dialogForm').addEventListener('submit', function(e) {
       e.preventDefault();
       const thema = document.getElementById('dialogThema').value;
-      window.location.href = '1.html?thema=' + encodeURIComponent(thema);
+     window.location.assign('1.html?thema=' + encodeURIComponent(thema));
     });
     
     document.getElementById('kopfstandForm').addEventListener('submit', function(e) {
