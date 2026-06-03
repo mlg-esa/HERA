@@ -6,17 +6,14 @@
     <link href="simple.css" rel="stylesheet">
     <title>Herausforderung Künstliche Intelligenz</title>
     <style>
-      .ki-ethik-bild {
-        text-align: center;
-        margin: 20px 0;
-      }
-      .ki-ethik-bild img {
-        max-width: 100%;
-        height: auto;
-        border: 1px solid #ddd;
-        border-radius: 4px;
-        padding: 5px;
-      }
+.pdf-container {
+    margin: 20px 0;
+    text-align: center;
+  }
+  .pdf-container embed {
+    margin: 10px auto;
+    display: block;
+  }
       .infobutton {
         display: block;
         margin: 20px auto;
@@ -34,6 +31,7 @@
         background-color: #45a049;
       }
     </style>
+  
   </head>
   <body>
 
@@ -119,13 +117,25 @@ Wähl einen der vier Kritikpunkte aus und beschäftige dich intensiver mit den P
       <div class="ki-ethik-bild">
         <h3>10 Gebote der KI-Ethik</h3>
         <p>Damit du KI verantwortungsvoll nutzen kannst, gibt es einfache Regeln:</p>
-<embed
-    src=https://github.com/mlg-esa/HERA/blob/main/10-KIGebote_Postkarte_final_digital.pdf"
+  <!-- Embed-Variante (PDF wird direkt angezeigt) -->
+  <embed
+    src="10-KIGebote_Postkarte_final_digital.pdf"
     type="application/pdf"
     width="100%"
     height="600px"
     style="border: 1px solid #ccc; border-radius: 4px;"
   >
+
+  <!-- Fallback für Browser, die kein Embed unterstützen -->
+  <p>
+    <a
+      href="10-KIGebote_Postkarte_final_digital.pdf"
+      class="infobutton"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      PDF in neuem Tab öffnen
+    </a>
 
         <a href="https://www.klicksafe.de/fileadmin/cms/download/Material/10-Gebote-der-KI-Ethik_infobrosch%C3%BCre_klicksafe.pdf"
            class="infobutton"
