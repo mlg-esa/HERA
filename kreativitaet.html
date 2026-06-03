@@ -146,6 +146,25 @@
     </form>
     </main>
 
+     <script>
+    document.getElementById('dialogForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const thema = document.getElementById('dialogThema').value;
+      window.location.href = '1.html?thema=' + encodeURIComponent(thema);
+    });
+    
+    document.getElementById('kopfstandForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const frage = document.getElementById('kopfstandFrage').value;
+      window.location.href = '2.html?frage=' + encodeURIComponent(frage);
+    });
+    
+    document.getElementById('spielForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const frage = document.getElementById('spielFrage').value;
+      window.location.href = '3.html?frage=' + encodeURIComponent(frage);
+    });
+  </script>
     
     <footer>
       <p>Das ist ein Angebot des Martin-Luther-Gymnasiums Eisenach.</p>
