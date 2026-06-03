@@ -157,13 +157,13 @@
     document.getElementById('kopfstandForm').addEventListener('submit', function(e) {
       e.preventDefault();
       const frage = document.getElementById('kopfstandFrage').value;
-      window.location.href = '2.html?frage=' + encodeURIComponent(frage);
+      window.location.assign('2.html?frage=' + encodeURIComponent(frage));
     });
     
     document.getElementById('spielForm').addEventListener('submit', function(e) {
       e.preventDefault();
       const frage = document.getElementById('spielFrage').value;
-      window.location.href = '3.html?frage=' + encodeURIComponent(frage);
+      window.location.assign('3.html?frage=' + encodeURIComponent(frage));
     });
   </script>
     
