@@ -1,1 +1,56 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="simple.css" rel="stylesheet">
+    <title>KI-Fortbildungstage Martin Luther Gymnasium Eisenach</title>
+  </head>
+  <body>
 
+  <header>
+    <h1>KI-Fortbildungstage des Martin Luther Gymnasiums Eisenach im Januar 2026</h1>
+    <p>Praktische Impulse zum Ausprobieren und zur Reflexion</p>
+
+    <nav>
+  <ul>
+    <li><a href="index.html">Start</a></li>
+    <li><a href="kontra-intuitiv.html">KI kontra-intuitiv</a></li>
+    <li><a href="schieberegler.html">Schieberegler-Reflexion</a></li>
+    <li><a href="gruppenpuzzle.html">Gruppenpuzzle</a></li>
+    <li><a href="fachgruppen.html">Austausch in Fachgruppen</a></li>
+  </ul>
+</nav>
+    
+  </header>
+  <main>
+    <h2>Ergebnis: Brainstorming-Spiel</h2>
+    <p>Unten findest du deinen individuell generierten Prompt. Kopiere ihn und nutze ihn in einem KI-Sprachmodell deiner Wahl:</p>
+    <pre id="resultText"></pre>
+    <button id="copyButton">Prompt kopieren</button>
+    <p>Solltest du bislang noch über keinerlei Zugang zu einem KI-Sprachmodell verfügen, kannst du das offene Angebot von <a href="https://duck.ai">duck.ai</a> nutzen.</p>
+  </main>
+    
+  
+  <script>
+    const urlParams = new URLSearchParams(window.location.search);
+    const frage = urlParams.get('frage');
+    
+    const prompt = `Wir spielen ein kreatives Ideen-PingPong.
+Die Herausforderung lautet: ${frage}.
+Du beginnst, indem du mich bittest, eine erste Idee in Stichpunkten zu nennen.
+Erst danach nennst du selbst eine Idee. Deine Idee muss unterschiedlich zu meiner Idee sein und einen neuen Aspekt aufgreifen.
+Dann forderst du mich direkt zur nächsten Idee auf – und so weiter.
+Die Ideen sollen möglichst kurz, überraschend und unterschiedlich sein.
+Wiederhole den Wechsel so lange, bis ich aufhöre zu spielen.`;
+    
+    document.getElementById('resultText').textContent = prompt;
+    
+    document.getElementById('copyButton').addEventListener('click', function() {
+      navigator.clipboard.writeText(prompt).then(function() {
+        alert('Prompt wurde in die Zwischenablage kopiert!');
+      });
+    });
+  </script>
+  </body>
+</html>
